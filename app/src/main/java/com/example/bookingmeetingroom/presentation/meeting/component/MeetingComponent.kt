@@ -43,6 +43,8 @@ fun BuildingSelection(listContents: List<String>, lable: String) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 10.dp, end = 10.dp)
+            ,readOnly = true
+            ,singleLine = true
             )
             DropDownList(
                 requestToOpen = isOpen.value,

@@ -18,6 +18,8 @@ import androidx.compose.ui.unit.dp
 import com.example.bookingmeetingroom.R
 import com.example.bookingmeetingroom.presentation.login.SignInSignUpTopAppBar
 import com.example.bookingmeetingroom.presentation.meeting.component.BuildingSelection
+import com.example.bookingmeetingroom.presentation.meeting.component.DateAndTimeMeeting
+import com.example.bookingmeetingroom.presentation.meeting.component.TextFieldTitle
 import com.example.bookingmeetingroom.presentation.theme.BookingMeetingRoomTheme
 
 //@OptIn(ExperimentalMaterialApi::class)
@@ -26,21 +28,42 @@ fun AddNewMeetingScreen() {
     Scaffold(
         topBar = {
             SignInSignUpTopAppBar(
-                topAppBarText = stringResource(id = R.string.add_new_meeting)
-                ,
-                onBackPressed = {  }
+                topAppBarText = stringResource(id = R.string.add_new_meeting),
+                onBackPressed = { }
             )
         },
         content =
         {
             Column {
-                BuildingSelection(buildingList,"انتخاب پردیس")
-                Spacer(modifier = Modifier.fillMaxWidth().padding(10.dp))
-                BuildingSelection(stairsList,"انتخاب طبقه")
-                Spacer(modifier = Modifier.fillMaxWidth().padding(10.dp))
-                BuildingSelection(roomsList,"انتخاب اتاق")
-                Spacer(modifier = Modifier.fillMaxWidth().padding(10.dp))
-
+                TextFieldTitle(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 10.dp, end = 10.dp),
+                    "عنوان جلسه"
+                )
+                Spacer(modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp))
+                DateAndTimeMeeting()
+                Spacer(modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp))
+                BuildingSelection(teamsList, "انتخاب تیم")
+                Spacer(modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp))
+                BuildingSelection(buildingList, "انتخاب پردیس")
+                Spacer(modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp))
+                BuildingSelection(stairsList, "انتخاب طبقه")
+                Spacer(modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp))
+                BuildingSelection(roomsList, "انتخاب اتاق")
+                Spacer(modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp))
 
 
             }
@@ -48,8 +71,6 @@ fun AddNewMeetingScreen() {
     )
 
 }
-
-
 
 
 @Preview(name = "Add new meeting in light theme")

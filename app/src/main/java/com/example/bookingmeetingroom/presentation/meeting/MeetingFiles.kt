@@ -1,5 +1,15 @@
 package com.example.bookingmeetingroom.presentation.meeting
 
+val teamsList = listOf(
+    "عمومی",
+    "زیرساخت",
+    "امنیت",
+    "اندروید",
+    "کلاینت",
+    "وردپرس",
+    "دیتابیس",
+    "پشتیبانی"
+)
 val buildingList = listOf(
     "پردیس هاشمیه",
     "پردیس عدل",

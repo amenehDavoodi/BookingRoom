@@ -116,6 +116,8 @@ fun UserName(
                 onImeAction()
             }
         )
+        ,singleLine = true
+    ,maxLines=1
     )
 
     emailState.getError()?.let { error -> TextFieldError(textError = error) }
@@ -182,6 +184,9 @@ fun Password(
                 onImeAction()
             }
         )
+        ,singleLine = true
+        ,maxLines=1
+
     )
 
     passwordState.getError()?.let { error -> TextFieldError(textError = error) }
