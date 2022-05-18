@@ -4,7 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -18,10 +21,13 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            BookingApplication()
+            CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
+                BookingApplication()
+            }
         }
     }
 }
+
 @Composable
 fun BookingApplication() {
     val navController = rememberNavController()
@@ -29,7 +35,7 @@ fun BookingApplication() {
         composable(Screen.LoginScreen.route) {
             SignIn(navController)
         }
-        composable(Screen.AddMeetingScreen.route+"/{userName}/{password}") {
+        composable(Screen.AddMeetingScreen.route + "/{userName}/{password}") {
             AddNewMeetingScreen()
         }
     }

@@ -10,6 +10,8 @@
     <string name="password">رمز عبور</string>
     <string name="hide_password">مخفی کردن رمز عبور</string>
     <string name="show_password">نمایش رمز عبور</string>
+    <string name="title_time">انتخاب زمان جلسه</string>
+    <string name="title_date">انتخاب تاریخ جلسه</string>
 
 
 </resources>

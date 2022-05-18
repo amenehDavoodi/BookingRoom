@@ -100,6 +100,9 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.2"
     implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
 
+    //date and time picker
+    implementation 'com.xdev.arch.persiancalendar.datepicker:datepicker:0.3.2'
+
 }
 kapt {
     correctErrorTypes = true
