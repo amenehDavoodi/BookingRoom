@@ -18,6 +18,7 @@ import com.example.bookingmeetingroom.R
 import com.example.bookingmeetingroom.presentation.Screen
 import com.example.bookingmeetingroom.presentation.theme.BookingMeetingRoomTheme
 import com.example.bookingmeetingroom.presentation.utils.supportWideScreen
+import dev.chrisbanes.accompanist.insets.statusBarsPadding
 
 
 sealed class LoginEvent {
@@ -28,9 +29,7 @@ sealed class LoginEvent {
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun SignIn(
-
-    navController: NavController)
+fun SignIn(navController: NavController)
 //    onNavigationEvent: (LoginEvent) -> Unit)
 {
 
@@ -59,7 +58,7 @@ fun SignIn(
                     SignInContent(
                         onSignInSubmitted = { email, password ->
 //                            onNavigationEvent(LoginEvent.SignIn(email, password))
-                            navController.navigate(Screen.AddMeetingScreen.route+"/${email}/${password}")
+                            navController.navigate("${Screen.HomeScreen.route}/$email/$password")
                         }
                     )
                     Spacer(modifier = Modifier.height(16.dp))

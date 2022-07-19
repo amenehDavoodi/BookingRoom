@@ -5,6 +5,7 @@
     <string name="dismiss">بیخیال </string>
     <string name="sign_in">ورود </string>
     <string name="add_new_meeting">جلسه جدید </string>
+    <string name="home">صفحه اصلی</string>
     <string name="forgot_password">فراموشی رمز عبور </string>
     <string name="feature_not_available">این ویژگی دردسترس نمی باشد</string>
     <string name="password">رمز عبور</string>
@@ -12,6 +13,15 @@
     <string name="show_password">نمایش رمز عبور</string>
     <string name="title_time">انتخاب زمان جلسه</string>
     <string name="title_date">انتخاب تاریخ جلسه</string>
+    <string name="since_lable">از</string>
+    <string name="to_lable">تا</string>
+    <string name="title_meeting">عنوان جلسه</string>
+    <string name="title_team_selection">انتخاب تیم</string>
+    <string name="title_paradis_selecion">انتخاب پردیس</string>
+    <string name="title_floor_selecion">انتخاب طبقه</string>
+    <string name="title_room_selecion">انتخاب اتاق</string>
+    <string name="create_new_meeting_title">ایجاد جلسه</string>
+    <string name="create_save_new_meeting_title">ثبت جلسه</string>
 
 
 </resources>

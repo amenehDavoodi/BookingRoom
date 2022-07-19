@@ -24,7 +24,7 @@ import com.example.bookingmeetingroom.presentation.login.TextFieldError
 @Composable
 fun TextFieldTitle(
     modifier: Modifier = Modifier, label: String,
-    imeAction: ImeAction = ImeAction.Done,
+    imeAction: ImeAction = ImeAction.Next,
     onImeAction: () -> Unit = {}
 ) {
     val textState = remember { mutableStateOf(TextFieldValue()) }

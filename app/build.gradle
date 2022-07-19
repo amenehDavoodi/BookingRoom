@@ -102,6 +102,8 @@ dependencies {
 
     //date and time picker
     implementation 'com.xdev.arch.persiancalendar.datepicker:datepicker:0.3.2'
+    implementation 'dev.chrisbanes.accompanist:accompanist-insets:0.6.2'
+
 
 }
 kapt {
