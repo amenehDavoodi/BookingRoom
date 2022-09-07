@@ -3,7 +3,6 @@ package com.example.bookingmeetingroom.di
 
 import com.example.bookingmeetingroom.common.Constants
 import com.example.bookingmeetingroom.data.remote.ApiMeeting
-import com.example.bookingmeetingroom.data.remote.dto.MeetingDto
 import com.example.bookingmeetingroom.data.repository.MeetingRepositoryImpl
 import com.example.bookingmeetingroom.domain.repository.MeetingRepository
 import dagger.Module

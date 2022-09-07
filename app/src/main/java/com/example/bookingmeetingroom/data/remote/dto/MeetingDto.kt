@@ -7,5 +7,6 @@ data class MeetingDto(
     val title: String,
     val place: Place,
     val time: Long,
-    val date: Date
+    val date: Long,
+    val state:Int
 )
