@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MeetingRoom
@@ -24,6 +25,8 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
@@ -33,6 +36,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.bookingmeetingroom.R
 import com.example.bookingmeetingroom.presentation.Screen
+import com.example.bookingmeetingroom.presentation.home.component.getAllMeeting
 import com.example.bookingmeetingroom.presentation.login.SignInSignUpTopAppBar
 import com.example.bookingmeetingroom.presentation.theme.LightGray200
 import java.time.LocalDateTime
@@ -54,23 +58,24 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = hiltView
             },
             content =
             {
-//                val pass = viewModel.pass
 //                SelectionContainer {
 //
 //                    Text(
-//                        text = pass,
+//                        text = "pass",
 //                        modifier = Modifier
 //                            .fillMaxWidth()
 //                            .padding(16.dp),
 //                        textAlign = TextAlign.Center,
-//                        style = Typography.body2
+//                        style = TextStyle.Default
 //                    )
 //                }
 
                 LazyColumn {
                     item {
 
-                        Column() {
+                        Column(modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp)) {
                             Row() {
 
                                 CardScreen(
@@ -78,7 +83,8 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = hiltView
                                     onItemClick = {
 
 
-                                        navController.navigate(Screen.AddMeetingScreen.route + "/{$email}/{$password}")
+                                        navController.navigate(Screen.AddMeetingScreen.route +
+                                                "/{$email}/{$password}")
 
                                     },
                                     Icons.Filled.MeetingRoom
@@ -89,8 +95,9 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = hiltView
                     }
                     item {
                         TopicSelection(
-                            viewModel._allMeeting.value,
-                            Modifier.padding(bottom = 8.dp)
+                            Modifier
+                                .padding(8.dp)
+                                .fillMaxWidth()
                         )
                     }
                 }
@@ -103,11 +110,10 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = hiltView
 
 @Composable
 private fun TopicSelection(
-    meetingState: MeetingUiState.Meetings,
     modifier: Modifier = Modifier
 ) {
     LazyHorizontalGrid(
-        rows = GridCells.Fixed(3),
+        rows = GridCells.Fixed(2),
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
         contentPadding = PaddingValues(24.dp),
@@ -124,7 +130,7 @@ private fun TopicSelection(
             .heightIn(max = max(240.dp, with(LocalDensity.current) { 240.sp.toDp() }))
             .fillMaxWidth()
     ) {
-        items(meetingState.allMeeting) { item ->
+        items(getAllMeeting()) { item ->
             singleItem(
                 title = item.title,
                 place = item.place.buildingId + " / " + item.place.stairsId + " / " + item.place.stairsRoomId,
@@ -147,18 +153,25 @@ private fun singleItem(
 
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
+            .fillMaxWidth()
+            .padding(6.dp)
     )
     {
         Card(
             modifier = Modifier
-                .width(120.dp)
-                .height(80.dp)
-                .padding(16.dp)
-                .border(2.dp, Color.Red)
+                .width(80.dp)
+                .height(40.dp)
+                .padding(5.dp)
+                .border(1.dp, Color.Gray)
+                .clickable { }
         ) {
-            Text(text = title)
+            Icon(
+                imageVector = NiaIcons.Add, contentDescription = name,
+                tint = MaterialTheme.colorScheme.onSurface
+            )
+            Text(text = title, modifier = Modifier
+                .size(18.dp)
+                .padding(10.dp), color = Color.Black)
 
         }
 
@@ -176,7 +189,7 @@ fun CardScreen(
         modifier = Modifier
             .fillMaxWidth()
             .padding(15.dp)
-            .clickable{onItemClick.invoke()  },
+            .clickable { onItemClick.invoke() },
         shape = RoundedCornerShape(8.dp),
         elevation = 10.dp
     ) {

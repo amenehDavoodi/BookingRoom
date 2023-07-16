@@ -55,7 +55,7 @@ class HomeViewModel @Inject constructor(
             12321354, date,3
         )
     )
-    val _allMeeting = mutableStateOf(MeetingUiState.Meetings(allMeeting))
+    val _allMeeting = mutableStateOf(allMeeting)
 
     init {
         savedStateHandle.get<String>(Constants.PARAM_PASS)?.let {
